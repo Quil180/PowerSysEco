@@ -1,0 +1,160 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{Yousef Alaa Awad}
+\chead{\hmwkClass\: \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+
+\newcommand{\hmwkTitle}{Homework\ \#1}
+\newcommand{\hmwkDueDate}{August 29, 2025}
+\newcommand{\hmwkClass}{Power Systems Economics}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}
+    \vspace{3in}
+}
+
+\author{Yousef Alaa Awad}
+
+% Problems start here
+\begin{document}
+
+\maketitle
+\pagebreak
+
+\section{2.2}
+\textbf{Given:} The inverse demand function of a group of consumers for a given type of widgets is given by the following expression where \textbf{q} is the demand and \textbf{$\pi$} is the unit price for this product: $$\pi = -10*q + 2000[\$]$$ 
+
+\subsection{A) Determine the maximum consumption of the consumers}
+To determine the maximum consumption of the consumer we simply have to find when the demand is fully saturated the unit price, also known as when the $\pi$ is 0. Therefore we have the following equations, and do the following algebra (The algebra is not explained):
+$$ 0 = -10*q + 2000 $$
+$$ -2000 = -10*q $$
+$$ \frac{2000}{10} = q $$
+$$ 200 \text{ Widgets} = q $$
+
+Therefore, the final answer for the maximum consumption of the consumers is \textbf{200} widgets!
+
+\subsection{B) Determine the price that no consumer is prepared to pay}
+The price that noone will be prepared to pay is when the demand is 0, or q, and therefore when plugged into the demand function, is:
+$$ \pi = -10*0 + 2000 $$
+$$ \pi = 0 + 2000 $$
+$$ \pi = \$2000 $$
+
+Therefore, the price that no one will be prepared for is \textbf{\$2,000}.
+
+\subsection{C) Determine the maximum consumers' surplus. Explain why the consumers will not be able to realize this surplus}
+The maximum consumers' surplus is simply the triangle formed when the demand curve intersects the price mark of 0. This is therefore the following equation: 
+$$ \text{Consumer}_{\text{surplus}} = \frac{1}{2} * \text{base} * \text{height} = \frac{1}{2} * q_{\text{max}} * \pi_{\text{max}} $$
+Of which then, when entering the bounds of the demand and price, will be...
+$$ \text{Consumer}_{\text{surplus}} = \frac{1}{2} * 200 * 2,000 = \$200,000 $$
+Now... This maximum consumer surplus will, sadly, never be realized due to the fact that supplier are never willing to supply 200 widgets all for a price of \$0 due to the economical inviability of that practice. 
+
+\subsection{D) For a price, $\pi$, of 1000\$/unit, calculate the change in consumption and the change in the revenune collected by the producers.}
+Give a $\pi$ of 1000\$/unit, we will gain an equation of the following:
+$$ 1000 = -10*q + 2000 $$
+Of which, with the following algebraic simplification gives a result of \textbf{100} units sold/consumed.
+$$ -10*q + 2000 = 1000 \rightarrow -10*q = -1000 \rightarrow q = 100 \text{ Widgets}$$
+Now, for the Revenue, the equation is simply the consumed amount of widgets, q, as well as the unit price, $\pi$ multiplied...
+$$ \text{Revenue} = \pi * q = 1000 * 100 = \$100,000 $$
+For the Gross Consumers' Surplus that is simply the integral of the demand function from 0 to the demanded amount with respect to the demand amount. Therefore it would be the following:
+$$ \text{GCS} = \int_{0}^{100}(-10*q + 2000)dq = [-5*q^2 + 2000*q]_{0}^{100} = -5*100^2 + 2000*100 = \$150,000 $$
+For the Net Consumers' Surplus it is simply just the difference between the Gross Consumers' Surplus as well as the Revenue, as shown below:
+$$ \text{NCS} = \text{GCS} - \text{R} = 150,000 - 100,000 = \$50,000 $$
+
+\subsection{E) If the price, $\pi$, increases by $20\%$, calculate the change in consumption and the change in revenue collected by the producers.}
+If the new price, $\pi_{\text{new}} = 1000 * 120\% = 1200$. Therefore, with the new price change, the consumed amount would become...
+$$ -10*q + 2000 = 1200 \rightarrow 10*q = 800 \rightarrow q = 80 \text{ Widgets} $$
+With this, the net revenue would also change to...
+$$ \text{R} = 1200*80 = \$96,000 $$
+
+\subsection{F) What is the price elasticity of demand for this product and this group of consumers when the price, $\pi$, is 1000\$/unit}
+To calculate the price elasticity, we would simply get the functions for $\pi$ and q, and do the following...
+$$ \frac{dq}{d\pi}\frac{\pi}{q}$$
+Therefore given that $\pi = -10*q + 2000$ and $q = -\frac{1}{10}*\pi + 200$ you get a $\frac{dq}{d\pi} = -\frac{1}{10}$. And, when $\pi = 1000$ you are, as previously calculated above given $q = 100$ Widgets. Finally, alltogether this gives you a price elasticity of...
+$$ \text{Elasticity} = (-\frac{1}{10})*(\frac{1000}{100}) = -1 $$
+
+\subsection{G) Derive an expression for the gross consumers' surplus and the net consumers' surplus as a function of the demand. Check these expressions using the reults of part d.}
+Gross Consumers' Surplus is first given by the function of:
+$$ \text{GCS}(q) = \int_0^{q}(-10*x+2000)dx = [-5*x^2+2000*x]_0^q = -5*q^2 + 2000*q $$
+And the Net Consumers' Surplus is...
+$$ \text{NCS}(q) = \text{GCS}(q) - \text{R}(q) = (-5*q^2 + 2000*q) - (\pi * q) = (-5*q^2 + 2000*q) - (-10*q+2000)*(q) = 5*q^2$$
+NOW, when we check this, to ensure its correct with part D (aka $q = 100$) we simply plug in q to the following:
+$$ \text{GCS}(100) = 2000*100 - 5*100^2 = \$150,000 $$
+$$ \text{NCS}(100) = 5*100^2 = \$50,000 $$
+Since both of these numbers are corroborated with the results from part D, it means we have succesfully derived the Gross Consumers' Surplus AND the Net Consumers' Surplus with respect to q.
+
+\subsection{H) Derive an expression for the net consumers' surplus and the gross consumers' surplus as a function of the price. Check these expressions using the results of part d.}
+To derive the expression for the Net Consumers' Surplus we first have to do the following and substitute $q=200-\frac{1}{10}*\pi$:
+$$ \text{NCS}(\pi) = 5*(200 - \frac{1}{10}*\pi)^2 = 5*(40,000 - 40*\pi + \frac{1}{100}*\pi^2) = 200,000 - 200*\pi + \frac{1}{20}*\pi^2$$
+To derive the Gross Consumers' Surplus with relation to the unit price ($\pi$) we do the following:
+$$ \text{GCS}(\pi) = \text{NCS}(\pi) + \text{R}(\pi) = (200,000 - 200*\pi + \frac{1}{20}*\pi^2) + \pi*(200 - \frac{1}{10}*\pi) = 200,000 - \frac{1}{20}*\pi^2$$
+
+\pagebreak
+\section{2.3}
+\textbf{Given:} Economists estimate that the supply function for the widget market is given by the following expression: $$ q = 0.2*\pi - 40 $$
+
+\subsection{A) Calculate the demand price at the market equilibrium if the demand is as defined in Problem 2.2.}
+At equilibrium, this means that the supply and demand curves intersect. This therefore means the following mathematically...
+$$ q_{\text{supply}} = q_{\text{demand}} \rightarrow \frac{1}{5}*\pi - 40 = 200 - \frac{1}{10}*\pi \rightarrow \frac{3}{10}*\pi = 240 \rightarrow \pi = 800\ \frac{\$}{\text{Widget}}$$ 
+With this, we can now find the equilibrium quantity, $q$:
+$$ q = \frac{1}{5}*(800) - 40 = 160 - 40 = 120\text{ Widgets} $$
+
+\subsection{B) For this equilibrium, calculate the Consumers' Gross Surplus, the Consumers' Net Surplus, the Producers' Revenue, the Producers' Profit, and the Global Welfare.}
+To calculate the Consumers' Gross Surplus we do the following:
+$$ \text{GCS}(120) = 2000*120 - 5*120^2 = 240,000 - 72,000 = \$168,000 $$
+And the Consumers' Net Surplus is:
+$$ \text{NCS}(120) = 5*120^2 = \$72,000 $$
+The Producers' Revenue (R):
+$$ \text{R}  = \pi*q=800*120=\$96,000 $$
+And the Producers' Profit (also known as the Producers' Surplus) is...
+$$ \text{PS} = \frac{1}{2}*q_{\text{eq}}*(\pi_{\text{eq}}-\pi_{\text{q=0}}) = \frac{1}{2}*120*(800-200) = \$36,000 $$
+And finally the Global Welfare across the whole simple economy is!!!!
+$$ \text{GW} = \text{NCS} + \text{PS} = 72,000 + 36,000 = \$108,000 $$
+
+\end{document}
