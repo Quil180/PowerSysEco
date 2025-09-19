@@ -1,0 +1,146 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amssymb} % for \therefore
+\usepackage{cancel}
+
+\usetikzlibrary{automata,positioning}
+
+\usepackage{graphicx}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{Yousef Alaa Awad}
+\chead{\hmwkClass\: \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+
+\newcommand{\hmwkTitle}{Homework\ \#4}
+\newcommand{\hmwkDueDate}{September 19, 2025}
+\newcommand{\hmwkClass}{Power Systems Economics}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}
+    \vspace{3in}
+}
+
+\author{Yousef Alaa Awad}
+
+% Problems start here
+\begin{document}
+
+\maketitle
+\pagebreak
+
+\section{3.6}
+\textbf{Given:} A company called Borduria Energy wns a nuclear power plant and a gas-fired power plant. Its trading division has entered into hte following contracts for 25 January:
+\begin{itemize}
+	\item A forward contract for the sale of 50 MW at a price of 21.00 \$/MWh. This contract applies to all hours.
+	\item A long-term contract for the sale of 300 MW during off-peak hours at a price of 14.00\$/MWh.
+	\item A long-term contract for the sale of 350 MW at 20.00\$/MWh during peak hours.
+\end{itemize}
+In addition, for the trading period from 2:00 to 3:00 pm on that day, it has entered into the following transactions:
+\begin{itemize}
+	\item A future contract for the purchase of 600 MWh at 20.00\$/MWh.
+	\item A future contract for the sale of 100 MWh at 22.00\$/Mwh.
+	\item A put option for 250 MWh at an exercise price 23.50\$/Mwh.
+	\item A call option 200 MWh at an exercise price of 22.50\$/Mwh.
+	\item a put option for 100 MWh  at an exercise price of 18.75\$/Mwh.
+	\item A bid in the spot market to produce 50 MW using its gas-fired plant at 19.00\$/Mwh.
+	\item A bid in the spot market to produce 100 MW using its gas-fired plant at 22.00\$/Mwh.
+\end{itemize}
+The option fee for all call and put options is \$2.00/Mwh. The peak hours are defind as being the hours between 8:00am and 8:00pm. Borduria Energy also sells electrical energy directly to small consumers through its retail division. Residential customers pay a tarrif of 25.50\$/Mwh.
+
+\pagebreak
+\subsection{A) Determine Borduria Energy's profit or loss for the entire trading period}
+First we have to determine the outcome of all the options based on the given spot price of 21.00\$/MWh:
+\begin{itemize}
+	\item The Put option for selling at \$23.50. would be exercised due to it being greater than \$21.00.
+	\item The call option to buy \$22.50 will \textbf{not} be exercised due to the spot price being lower.
+	\item The put option to sell at \$18.75 would \textbf{not} be exercised due to the spot price being higher.
+\end{itemize}
+And, just to clarify, the following table will show the rest of the financial transactions for the specific hour:
+\begin{center}
+	\begin{tabular}{||c|c|c|c|c|c||}
+		\hline
+		Item & Energy Bought & Energy Sold & Price & Expenses & Revenue \\
+		\hline \hline
+		\textit{Contracts \& Purchases} & & & & & \\
+		Future T4 & 600 & & 20.00 & 12,000 & \\
+		Future T5 & & 100 & 22.00 & & 2,200 \\
+		Forward T1 & & 50 & 21.00 & & 1,050 \\
+		Long-Term T3 & & 350 & 20.00 & & 7,000 \\
+		Balancing Spot Purchase & 100 & & 21.00 & 2,100 & \\
+		\hline
+		\textit{Physical Assets \& Sales} & & & & & \\
+		Nuclear Unit & 400 & & 16.00 & 6,400 & \\
+		Gas-fired Unit & 200 & & 18.00 & 3,600 & \\
+		Spot sale T9 & & 50 & 21.00 & & 1,050 \\
+		Residential Customers & & 300 & 25.50 & & 7,650 \\
+		Commercial Customers & & 200 & 25.00 & & 5,000 \\
+		\hline
+		\textit{Options} & & & & & \\
+		Exercise Put T6 & & 250 & 23.50 & & 5,875 \\
+		Fee T6 & & & 2.00 & 500 & \\
+		Fee T7 & & & 2.00 & 400 & \\
+		Fee T8 & & & 2.00 & 200 & \\
+		\hline \hline
+		\textbf{Totals} & \textbf{1300} & \textbf{1300} & & \textbf{\$25,200} & \textbf{\$29,825} \\
+		\hline
+	\end{tabular}
+\end{center}
+But now we must calculate the profit, of which is just Revenue - Profit orrrr:
+$$ Profit = Revenue - Expenses = 29,825 - 25,200 = \$4,625 $$
+
+\subsection{B) What is the financial impact if the nuclear power plant fails?}
+If theh nuclear plant fails the, then Borduria Energy's defecit on energy increases by 400MW, making the new energy defecit 500MW. BUT, this defecit increase also increases the spot price to that of 28.00\$/MWh. This then causes the following effects:
+\begin{itemize}
+	\item Operating Expense for Nuclear Plant Eliminated: -\$6,400
+	\item Spot Purchase Cost increase: +$500*28.00 = \$14,000$ but subtract old spot purchase:
+		$$ \$14,000 - \$2,100 = +\$11,900 $$
+\end{itemize}
+Therefore the net change in costs is simply just $11,900 - 6,400 = \$5,500$ and of which means we must subtract from the old profit:
+$$ 4,625 - 5,500 = -\$875 $$
+Net Profit being negative meaning that if the Nuclear Plant fails, Borduriia Energy will have a \textbf{loss} of \$875.
+
+\end{document}
