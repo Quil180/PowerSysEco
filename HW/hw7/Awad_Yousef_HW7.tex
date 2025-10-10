@@ -1,0 +1,119 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+
+\usetikzlibrary{automata,positioning}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{Yousef Alaa Awad}
+\chead{\hmwkClass\: \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+
+\newcommand{\hmwkTitle}{Homework\ \#7}
+\newcommand{\hmwkClass}{Power Systems Economics}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}
+    \vspace{3in}
+}
+
+\author{Yousef Alaa Awad}
+
+% Problems start here
+\begin{document}
+
+\maketitle
+\pagebreak
+
+\section{4.10}
+\textbf{Given:} Consider a market for electrical energy that is supplied by two generating companies whose cost functions are:
+$$ C_A = 36*P_A\frac{\$}{h} $$
+$$ C_B = 31*P_B\frac{\$}{h} $$
+The inverse demand curve for this market is estimated to be:
+$$ \pi = 120 - D\frac{\$}{\text{MWh}} $$
+Assuming a Cournot model of competition, use a table similar to the one used in Example 4.8 to calculate the equilibrium point of this market (price, quantity, production, and profit of each firm). (Hint: Use a spreasheet. A resolution of 5 MW is acceptable)
+\newline
+First we have to find the Profit Maximimation of Firm A, or $\Omega_A$, is simply the revenue minus its cost. However, the price, $\pi$, depends on the output of both $P_A$ and $P_B$. Therefore we shall get the following equations:
+$$ \Omega_A = \pi*P_A - C_A*P_A = (120 - (P_A + P_B))*P_A - 36*P_A = 120*P_A - P_A^2 - P_A*P_B - 36*P_A $$
+$$ \Omega_A = 84*P_A - P_A^2 - P_A*P_B $$
+Now, to maximize profit (and find Firm A's reaction curve), we simply find when the derivative (with respect to $P_A$) is zero:
+$$ \frac{d\Omega_A}{dP_A} = 0 \rightarrow 84 - 2*P_A - P_B = 0 \rightarrow 2*P_A = 84 - P_B \rightarrow P_A = 42 - \frac{P_B}{2} $$
+Now, to find Firm B's profit maximization equation, and respective reaction curve we go through the exact same steps. First we must find the $\Omega_B$:
+$$ \Omega_B = \pi*P_B - C_B*P_B = (120 - (P_A + P_B))*P_B - 31*P_B = 120*P_B - P_A*P_B - P_B^2 - 31*P_B $$
+$$ \Omega_B = 89*P_B - P_B^2 - P_A*P_B $$
+And after, we now find the derivative (with respect to $P_B$) and set it to zero:
+$$ \frac{d\Omega_B}{dP_B} = 0\rightarrow 0 = 89 - 2*P_B - P_A \rightarrow 2*P_B = 89 - P_A \rightarrow P_B = \frac{89-P_B}{2} $$
+Now, to find equilibrium we simply take these two equations, and substitute one of them into the other. In this case I will be substituting the $P_B$ that we found above from Firm B into Firm A's reaction curve:
+$$ P_A = 42 - \frac{\frac{89-P_A}{2}}{2} \rightarrow P_A = 42 - \frac{89 - P_A}{4} \rightarrow \frac{3}{4}*P_A = \frac{79}{4} \rightarrow P_A = \frac{79}{4}*\frac{4}{3} = \frac{79}{3} = 26.33\text{... MWh} \approx \textbf{25 MWh}$$
+Now, to find $P_B$, we simply substitute the exact $P_A$ we found into Firm B's reaction curve:
+$$ P_B = \frac{89 - \frac{79}{3}}{2} = \frac{\frac{188}{3}}{2} = \frac{188}{6} = \frac{94}{3} = 31.33\text{... MWh} \approx \textbf{30 MWh} $$
+\begin{center}
+  (The rounding/approximation was done due to the \textit{hint} stating that it is recommended).
+\end{center}
+\pagebreak
+Now, to find the Equilibrium results we simply will be using the \textit{rounded} values of $P_A$ and $P_B$:
+\begin{itemize}
+\item Total Demand (D) $= P_A + P_B = 25+30 = \textbf{55}\text{ MW}$
+  \item Market Price ($\pi$) $= 120 - D= 120 - 55 = \textbf{65}\frac{\$}{\text{MWh}}$
+  \item Firm A Profit ($\Omega_A$) $= (\pi*P_A) - (C_A*P_A) = 65*25-36*25=1625-900=\$\textbf{725}$
+  \item Firm B Profit ($\Omega_B$) $= (\pi*P_B) - (C_B*P_B) = 65*30-31*30=1950-930=\$\textbf{1020}$
+\end{itemize}
+And now, putting this all into a Cournot Iteration Table, it will be the following:
+\begin{center}
+  \begin{tabular}{|cccccc|}
+    \hline
+    \textbf{Step} & \textbf{Assumed $P_B$} & \textbf{Optimal $P_A$} & \textbf{Assumed $P_A$} & \textbf{Optimal $P_B$} & \textbf{Market Price $\pi$} \\
+    \hline
+    1 & 0 & 40 (42) & 40 & 25 (24.5) & 55 \\
+    2 & 25 & 30 (29.5) & 30 & 30 (29.5) & 60 \\
+    3 & 30 & \textbf{25} (27) & \textbf{25} & \textbf{30} (32) & \textbf{65} \\
+    \hline
+  \end{tabular}
+\end{center}
+Now, what in the world does the table mean? The table shows that if Firm B produces at the 30 MW, then Firm A's best response to that is to produce 25 MW. And if, say Firm A starts producing 25 MW, then Firm B's response should be \textit{logically} to produce 30 MW. Meaning, that it is a stable Nash Equilibrium.
+\end{document}
